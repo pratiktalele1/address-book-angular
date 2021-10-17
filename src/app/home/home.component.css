@@ -1,0 +1,36 @@
+tr{
+    background-color: white;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+.btn-primary{
+    background-color:  #008CFF;
+    float: right;
+    height: 50px;
+    width: 160px;
+    font-size: 20px;
+}
+
+table{
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing:0 10px;
+}
+
+tr:hover{
+    background-color: #F7F7F7;
+    
+}
+
+th{
+    background-color: #F7F7F7;
+    color: #658292;
+    text-align: center;
+}
+
+tr{
+    text-align: center;
+}

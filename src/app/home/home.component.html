@@ -1,0 +1,34 @@
+<!-- displaying database data in table format  -->
+  <div class="container" >
+    <button class="btn btn-primary" [routerLink]="['/add','0']"><i class="fa fa-plus" style="font-size:20px"></i> Add Person</button>
+    
+    <h2 style="color: #42515F;">Person Details</h2>
+    <table class="table ">
+      
+        <tr>
+          <th>Fullname</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip Code</th>
+          <th>Phone Number</th>
+        </tr>
+      
+      <tbody>
+        <tr *ngFor="let detail of details">
+          <td>{{detail.name}}</td>
+          <td>{{detail.address}}</td>
+          <td>{{detail.cityName}}</td>
+          <td>{{detail.stateName}}</td>
+          <td>{{detail.pin}}</td>
+          <td>{{detail.phoneNumber}}</td>
+          <td>
+            <i class="fa fa-trash" (click)="remove(detail.id)"></i> &nbsp;&nbsp;
+            <i class="fas fa-pencil-alt" (click)="edit(detail.id)" ></i>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,59 @@
+  <!-- form to submit person details -->
+       <div class="body-container form-content"> 
+          <form class="form"  onreset="resetForm()" [formGroup]="registrationForm">
+              <div class="form-head">
+                  <span class="head">PERSON ADDRESS FORM</span>
+                  <i class="fas fa-times-circle" style="float: right;margin-right: 20px;margin-top: 5px;" routerLink="/home"></i>
+              </div>
+              <div class="row-content">
+                  <label class="label text" for="name">Full Name</label>
+                  <input class="input" type="text" name="name" id="name" class="form-control" formControlName=name>
+              </div>
+              <div class="row-content">
+                  <label for="phone" class="label text">Phone Number</label>
+                  <input class="input" type="tel" name="phone" id="phone" class="form-control" formControlName=phoneNumber>
+              </div>
+              <div class="row-content">
+                  <label for="address" class="label text">Address</label>
+                  <textarea class="input" name="address" id="address" style="height: 100px" class="form-control" formControlName=address></textarea>
+              </div>
+              <div class="row-content-address">
+                  <div class="city-container subAddress">
+                      <label for="city">Select City</label>
+                      <select name="city" id="city" class="form-control" formControlName=cityName >
+                          <option select value> -- select city -- </option>
+                          <option value="Mumbai">Mumbai</option>
+                          <option value="Banglore">Banglore</option>
+                          <option value="Pune">Pune</option>
+                          <option value="Mysore">Mysore</option>
+                          <option value="Surat">Surat</option>
+                          <option value="Gurugram">Gurugram</option>
+                      </select>
+                  </div>
+                  <div class="state-container subAddress" >
+                      <label for="">Select State</label>
+                      <select name="state" id="state" class="form-control" formControlName=stateName>
+                          <option select value> -- select state -- </option>
+                          <option value="Maharashtra">Maharashtra</option>
+                          <option value="Kerala">Kerala</option>
+                          <option value="Gujrat">Gujrat</option>
+                          <option value="Karnataka">Karnataka</option>
+                          <option value="Rajasthan">Rajasthan</option>
+                          <option value="Delhi">Delhi</option>
+                      </select>
+                  </div>
+                  <div class=" subAddress">
+                      <label for="zip">Zip Code</label>
+                      <input height="500" class="zip" type="text"  name="zip" id="zip" class="form-control" formControlName=pin>
+                  </div>
+              </div>
+              <div class="add-reset">
+                  <button class="addButton button" type="submit" id="addButton" (click)="submitData()" *ngIf="this.getId==0">Add</button>
+                  <button class="resetButton button" (click)="update()" *ngIf="getId!=0">update</button>
+                  <button class="resetButton button" type="reset" id="resetButton">Reset</button>
+              </div>
+          </form>
+      </div> 
+      
+     
+    
