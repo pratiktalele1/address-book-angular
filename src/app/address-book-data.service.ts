@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddressBookDTO } from './address-book-dto';
+import { RegistrationClass } from './registration-class';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +64,22 @@ export class AddressBookDataService {
   getDataById(id: any):Observable<AddressBookDTO[]> {
     return this._http.get<AddressBookDTO[]>(`${this.url}/${id}`);
  
+   }
+
+   /**
+    * new registration data is sending to store in database using post http method
+    * @param obj 
+    * @returns post response
+    */
+   registrationData(obj:any):Observable<RegistrationClass[]>{
+    return this._http.post<RegistrationClass[]>(this.url+"/login",obj)
+   }
+
+   /**
+    * getting login data using get http method
+    * @returns get response
+    */
+   getLogins():Observable<RegistrationClass[]>{
+     return this._http.get<RegistrationClass[]>(this.url+"/getLogin")
    }
 }
