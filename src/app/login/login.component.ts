@@ -29,12 +29,11 @@ export class LoginComponent implements OnInit {
   onLoginSubmit(name:any,pass:any){
     this._data.getLogins()
     .subscribe((getData:any)=>{
-      this.datas=getData.data;
-      this.datas.forEach(element => {
-         if(element.userName==name.value && element.password==pass.value){
-            this._navigate.navigate(['home']);
-         } 
-      });
+      if(getData.data.userName==name&& getData.data.password==pass){
+        this._navigate.navigate["home"];
+      }else{
+        alert("Invalid username or password");
+      }
     });
   }
 
