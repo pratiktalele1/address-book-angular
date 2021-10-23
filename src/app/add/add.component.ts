@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddressBookDataService } from '../address-book-data.service';
-
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -12,7 +12,7 @@ export class AddComponent implements OnInit {
 
   public value;
   public getId;
-  constructor(private _data:AddressBookDataService, private _router:ActivatedRoute, private _nevigate:Router) { }
+  constructor(private _data:AddressBookDataService, private _router:ActivatedRoute, private _nevigate:Router, private fb:FormBuilder) { }
 
   /**
    * binding data to form for edit purpose using getDataById function
@@ -24,13 +24,13 @@ export class AddComponent implements OnInit {
     .subscribe(
       (getData:any) => 
       {
-        this.registrationForm=new FormGroup({
-          name:new FormControl(getData.data.name),
-          address: new FormControl(getData.data.address),
-          pin:new FormControl(getData.data.pin),
-          cityName:new FormControl(getData.data.cityName),
-          stateName:new FormControl(getData.data.stateName),
-          phoneNumber:new FormControl(getData.data.phoneNumber)   
+        this.registrationForm=this.fb.group({
+          name:[getData.data.name],
+          address: [getData.data.address],
+          pin:[getData.data.pin],
+          cityName:[getData.data.cityName],
+          stateName:[getData.data.stateName],
+          phoneNumber:[getData.data.phoneNumber]   
         });
 
       }
@@ -40,13 +40,13 @@ export class AddComponent implements OnInit {
   /**
    * assigning data to form and form data to variable for reactive form
    */
-  registrationForm=new FormGroup({
-    name:new FormControl(''),
-    address: new FormControl(''),
-    pin:new FormControl(''),
-    cityName:new FormControl(''),
-    stateName:new FormControl(''),
-    phoneNumber:new FormControl('')
+  registrationForm=this.fb.group({
+    name:[''],
+    address: [''],
+    pin:[''],
+    cityName:[''],
+    stateName:[''],
+    phoneNumber:['']
   });
 
   /**

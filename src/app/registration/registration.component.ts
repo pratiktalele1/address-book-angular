@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddressBookDataService } from '../address-book-data.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -15,18 +16,18 @@ export class RegistrationComponent implements OnInit {
    * @param _data 
    * @param _navigate 
    */
-  constructor(private _data:AddressBookDataService, private _navigate:Router) { }
+  constructor(private _data:AddressBookDataService, private _navigate:Router, private fb:FormBuilder) { }
 
   public checkPassword:boolean=false;
 
   /**
    * binding data to form for reactive form
    */
-  registration=new FormGroup({
-    userName: new FormControl(''),
-    email :  new FormControl(''),
-    password : new FormControl(''),
-    confirmPassword : new FormControl(''),
+  registration=this.fb.group({
+    userName: [''],
+    email :  [''],
+    password : [''],
+    confirmPassword : [''],
   });
 
   ngOnInit(): void {

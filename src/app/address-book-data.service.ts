@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddressBookDTO } from './address-book-dto';
+import { Login } from './login';
 import { RegistrationClass } from './registration-class';
+import { Validate } from './validate';
 
 @Injectable({
   providedIn: 'root'
@@ -79,7 +81,7 @@ export class AddressBookDataService {
     * getting login data using get http method
     * @returns get response
     */
-   getLogins():Observable<RegistrationClass[]>{
-     return this._http.get<RegistrationClass[]>(this.url+"/getLogin")
+   getLogins(data:any):Observable<Validate>{
+     return this._http.get<Validate>(this.url+"/getLogin",data)
    }
 }
