@@ -81,7 +81,8 @@ export class AddressBookDataService {
     * getting login data using get http method
     * @returns get response
     */
-   getLogins(data:any):Observable<Validate>{
-     return this._http.get<Validate>(this.url+"/getLogin",data)
-   }
+
+    getLogins(data:any):Observable<RegistrationClass[]>{
+      return this._http.post<RegistrationClass[]>(this.url+"/getLogin",data);
+    }
 }
